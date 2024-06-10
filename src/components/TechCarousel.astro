@@ -1,0 +1,72 @@
+---
+// TechCarousel.astro
+---
+
+<div class="logo-carousel">
+    <div class="logo-carousel-track">
+        <img src="https://skillicons.dev/icons?i=firebase" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=kotlin" alt="kotlin"/>
+        <img src="https://skillicons.dev/icons?i=figma" alt="figma"/>
+        <img src="https://skillicons.dev/icons?i=astro" alt="astro"/>
+        <img src="https://skillicons.dev/icons?i=androidstudio" alt="androidstudio"/>
+        <img src="https://skillicons.dev/icons?i=arduino" alt="arduino"/>
+        <img src="https://skillicons.dev/icons?i=css" alt="css"/>
+        <img src="https://skillicons.dev/icons?i=devto" alt="devto"/>
+        <img src="https://skillicons.dev/icons?i=firebase" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=kotlin" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=figma" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=astro" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=androidstudio" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=arduino" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=css" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=devto" alt="firebaselogo"/>        
+        <img src="https://skillicons.dev/icons?i=firebase" alt="firebaselogo"/>
+        <img src="https://skillicons.dev/icons?i=kotlin" alt="firebaselogo"/>
+    </div>
+</div>
+<hr id="line">
+
+
+<style>
+    .logo-carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 73%;
+        overflow: hidden;
+        padding: 60px 0;
+        white-space: nowrap;
+        margin: 0 auto;
+    }
+
+    .logo-carousel-track {
+        display: flex;
+        animation: slide 6s linear infinite;
+    }
+
+    .logo-carousel-track img {
+        height: 50px;
+        width: 50px;
+        margin: 0 40px;
+        width: calc(50% * 2);
+    }
+    .logo-carousel-track:hover {
+        animation-play-state: paused;
+    }
+    
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-72.5%)
+        }
+    }
+    #line {
+        width: 60%;
+        height: 3px;
+        color: wheat;
+        padding-bottom: 3.5em;
+        margin: 0 auto;
+    }
+</style>

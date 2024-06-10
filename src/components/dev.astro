@@ -1,0 +1,105 @@
+
+---
+    // dev.astro
+    import Typewriter from 'typewriter-effect';
+
+    
+    
+    ---
+
+
+    <div class="typewriter-effect">
+        <div class="text font-bold py-52" id="typewriter-text"></div>
+      </div>
+      <style>
+    .typewriter-effect {
+            display: flex;
+            justify-content: center;
+            
+        }
+    
+        .typewriter-effect > .text {
+            max-width: 0;
+            animation: typing 5s steps(var(--characters)) infinite;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 5rem;
+            
+        }
+        
+        .typewriter-effect::after {
+            content: " |";
+            animation: blink 1s infinite;
+            animation-timing-function: step-end;
+            font-size: 5rem;
+            padding-top: 208px;
+        }
+        
+        @keyframes typing {
+            25%,
+            100% {
+            max-width: 100%;
+            }
+        }
+        
+        @keyframes blink {
+            0%,
+            75%,
+            100% {
+            opacity: 1;
+            }
+            25% {
+            opacity: 0;
+            }
+        }
+    </style>
+
+
+      
+
+<script>
+    const typeWriter = document.getElementById('typewriter-text')!;
+let text = 'Álvaro Castilla';
+typeWriter.textContent = text;
+      typeWriter.style.setProperty('--characters', text.length.toString());
+let cont = 0;
+
+// Comienza la animación y luego ejecuta la función para cambiar el texto
+typeWriter.addEventListener('animationiteration', () => {
+  changeText();
+});
+
+// Función para cambiar el texto
+function changeText() {
+  switch (cont) {
+    case 0: {
+      text = "Full Stack Developer";
+      typeWriter.textContent = text;
+      typeWriter.style.setProperty('--characters', text.length.toString());
+      cont++;
+      break;
+    }
+    case 1: {
+      text = "Android";
+      typeWriter.textContent = text;
+      typeWriter.style.setProperty('--characters', text.length.toString());
+      cont++;
+      break;
+    }
+    case 2: {
+      text = "Jetpack Compose";
+      typeWriter.textContent = text;
+      typeWriter.style.setProperty('--characters', text.length.toString());
+      cont++
+      break;
+    }
+    case 3: {
+      text = "ASTRO";
+      typeWriter.textContent = text;
+      typeWriter.style.setProperty('--characters', text.length.toString());
+      cont = 0;
+      break;
+    }
+  }
+}
+</script>

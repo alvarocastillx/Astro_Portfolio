@@ -1,0 +1,53 @@
+---
+//AboutMe.astro
+import '@fontsource-variable/rubik';
+---
+
+<div class="flex flex-row justify-center w-[1250px] mx-auto" id="about">
+    <section class="flex flex-col flex-auto w-[1146px] ">
+        <h2 class="font-bold text-5xl text-pretty" id="style-3">
+            Conóceme
+        </h2>
+        <h4 class="flex justify-center items-center text-justify" style="padding-top:20px" id="textoAM">
+            Soy Álvaro Castilla, un apasionado desarrollador con una fascinación por la innovación tecnológica y el diseño de software intuitivo. 
+            Mi trayectoria profesional está marcada por una búsqueda constante de soluciones creativas a desafíos complejos.
+            Desde mis primeros días de programación hasta mi experiencia actual, he cultivado habilidades en múltiples lenguajes y plataformas. 
+            Mi enfoque va más allá del código; me impulsa la idea de crear productos que mejoren la vida de las personas y simplifiquen procesos. 
+            En cada proyecto, busco la excelencia técnica y la satisfacción del usuario.
+        </h4>
+    </section>
+    <section>
+        <img src="/LOGO.png" alt="logo" width="200px" style="padding-top: 1rem; padding-left: 3rem;" />
+    </section>
+</div>
+
+<style>
+     
+    #textoAM {
+        font-family: 'Rubik Variable';
+        opacity: 80%;
+    }
+    #style-3 {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 4px;
+		border-radius: 4px;
+		background-color: white;
+		bottom: 0;
+		left: 0;
+		transform-origin: right;
+		transform: scaleX(0);
+		transition: transform .3s ease-in-out;
+	}
+
+	&:hover::before {
+		transform-origin: left;
+		transform: scaleX(1);
+	}
+	
+}
+</style>
