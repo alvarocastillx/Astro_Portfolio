@@ -1,0 +1,27 @@
+
+---
+import Github from "./Buttons/Github.astro"
+import Email from "./Buttons/Email.astro"
+---
+<div class="mx-auto w-[1250px] pb-6" id="contact">
+    <section class="flex flex-col justify-center items-start ">
+        <h2 class="font-bold text-5xl text-pretty mr-5 mb-6">
+            Contacto
+        </h2>
+        <h4 class="mb-6">¿Te interesa trabajar conmigo? Envíame un mensaje!</h4>
+    </section>
+    <section class="flex flex-row items-start gap-4">
+        <Github>
+        </Github>
+        <Email/>
+    </section>
+</div>
+<hr id="line" class="mt-8">
+
+
+
+<style>
+    h4 {
+        font-family: 'Rubik Variable';
+    }
+</style>

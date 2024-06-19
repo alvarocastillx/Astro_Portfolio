@@ -1,27 +1,41 @@
 ---
  //Projects.astro
-import Github from "./Icons/Github.astro";
+import { imageConfig } from "astro:assets";
+import { svgANDROID, svgASTRO, svgCSS, svgHTML, svgJS, svgJetpackC, svgTailwind } from "../Icons/icons.astro";
+import Github from "./Buttons/Github.astro";
+import TechComponent from "./Techs/TechComponent.astro";
+
 
 const CARDS = [
     {
         project_name:"Portfolio",
-        project_description:"Portfolio creado en Astro",
-        link:"",
-        image:"url(.//public/Portfolio.jpg);"
+        project_description:`Portfolio creado en <span class="font-bold" style="color:#FF4500">Astro</span>`,
+        link:"https://github.com/alvarocastillx/Astro_Portfolio",
+        image:"url(.//public/Portfolio.jpg);",
+        techs: ["Astro","JS","HTML","CSS","Tailwind"]
     },
     {
         project_name:"CarAction",
-        project_description:"CarAction es una aplicación para sistemas operativos Android creada en el framework Jetpack Compose. Creada...",
-        link:"",
-        image:"url(.//public/proyectoMockup.png);"
+        project_description:`CarAction es una aplicación de compraventa de coches creada en el framework <span class="font-bold" style="color:#3DDD85">Jetpack Compose</span>.`,
+        link:"https://github.com/alvarocastillx/PFG-CarAction",
+        image:"url(.//public/proyectoMockup.png);",
+        techs: ["Android","JetpackC"]
     },
     {
-        project_name:"CarAction",
-        project_description:"CarAction es una aplicación para sistemas operativos Android creada en el framework Jetpack Compose. Creada...",
-        link:"",
-        image:"url(.//public/LOGO.png);"
+        project_name:"GameZoneApp",
+        project_description:"Tienda de videojuegos para Android creada con Jetpack Compose",
+        link:"https://github.com/alvarocastillx/GameZoneApp",
+        image:"url(.//public/GameZone.png);",
+        techs: ["Android","JetpackC"]
     }
+
 ]
+
+
+
+
+
+
 ---
 
 <div class="flex flex-col justify-center items-start mx-auto w-[1250px]" id="projects">
@@ -31,27 +45,70 @@ const CARDS = [
         </h2>
         <Github/>
     </section>
-    <section class="flex flex-row flex-auto w-[1146px]">
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
         {
-            CARDS.map(card => {
+            CARDS.map((card) => {
                 return (
                     <a href={card.link}>
-                        <div class="card" style={{backgroundImage : card.image}}>
-                            <div id="card_content" >
-                                <div class="flex flex-col mx-auto">
-                                    <h2 class="text-3xl">{card.project_name}</h2>
-                                    <p class="text-pretty">
-                                    {card.project_description}
-                                    </p>
+                            <div class="card" style={{backgroundImage : card.image}} >
+                                <div id="card_content" >
+                                    <div class="flex flex-col mx-auto">
+                                        <h2 class="text-3xl">{card.project_name}</h2>
+                                        <p class="text-pretty" set:html={card.project_description}>
+                                        </p>
+                                        <section class="flex flex-row pt-2">
+                                            {
+                                                card.techs?.map(tech => {
+                                                    if (tech === "JS") {
+                                                        return (<TechComponent svg={svgJS}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "Astro") {
+                                                        return (<TechComponent svg={svgASTRO}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "HTML") {
+                                                        return (<TechComponent svg={svgHTML}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "CSS") {
+                                                        return (<TechComponent svg={svgCSS}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "Tailwind") {
+                                                        return (<TechComponent svg={svgTailwind}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "JetpackC") {
+                                                        return (<TechComponent svg={svgJetpackC}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                    if (tech === "Android") {
+                                                        return (<TechComponent svg={svgANDROID}>
+                                                            </TechComponent>
+                                                            )
+                                                    }
+                                                
+                                                })
+                                            }
+                                        </section>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                )
+                        </a>)
+                
             })
         }
     </section>
 </div>
+<hr id="line">
 
 
 <style>
@@ -105,6 +162,7 @@ const CARDS = [
         opacity: 0.15;
         
     }
+    
     
     
 </style>
